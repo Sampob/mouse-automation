@@ -29,6 +29,11 @@ def select_action(line):
     """
     Gets a String type line
     Separates the action from parameters, selects it and passes parameters
+    Current actions:
+    MOVE - Moves mouse cursor to coordinates
+    CLICK - Click mouse at current location or at coordinates
+    SLEEP - Delays the following action
+    CONFIRM - Prompts user to continue or stop
     :param line: String line to go through
     :return: Boolean of whether to continue or stop
     """
@@ -53,7 +58,6 @@ def select_action(line):
 
     elif selection == 'CONFIRM':
         text = pyautogui.confirm(text='Continue?', buttons=[values[0], values[1]])
-        # TODO Stop script after prompt
         if text == values[1]:
             return False
     return True
