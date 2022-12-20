@@ -1,5 +1,6 @@
 import pyautogui
 from random import randint
+from image_matching.image_functions import locate_image
 
 
 def click_mouse_at(x=None, y=None, arr=None, rand=0, mouse='left'):
@@ -97,3 +98,13 @@ def point_to_coordinates(point):
         return [point.x, point.y]
     except AttributeError:
         return False
+
+
+def click_at_image(img, mouse='left'):
+    """
+    Uses other functions to find and click specified image
+    :param img: image path and filename
+    :param mouse: mouse action to perform
+    :return: None
+    """
+    click_mouse_at(arr=point_to_coordinates(locate_image(img)), mouse=mouse)
