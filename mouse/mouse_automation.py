@@ -61,3 +61,15 @@ def move_mouse(x, y, rand):
     """
     cur_x, cur_y = pyautogui.position()
     pyautogui.moveTo((cur_x + x + randint(-rand, rand)), (cur_y + y + randint(-rand, rand)))
+
+
+def point_to_coordinates(point):
+    """
+    Formats Point object to an Array
+    :param point: Point object with attributes x and y
+    :return: Array [x, y], if no coordinates False
+    """
+    try:
+        return [point.x, point.y]
+    except AttributeError:
+        return False
