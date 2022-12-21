@@ -1,7 +1,3 @@
-import pyautogui
-from mouse.mouse_automation import *
-
-
 def locate_image(img):
     """
     Finds specified images center coordinates on screen

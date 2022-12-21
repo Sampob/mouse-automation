@@ -1,6 +1,6 @@
 import pyautogui
 from random import randint
-from image_matching.image_functions import locate_image
+from model.image_matching.image_functions import locate_image
 
 
 def click_mouse_at(x=None, y=None, arr=None, rand=0, mouse='left'):

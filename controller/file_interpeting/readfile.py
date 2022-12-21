@@ -1,7 +1,5 @@
-import pyautogui
-
-from mouse.mouse_automation import *
-from operands.time import *
+from model.mouse.mouse_automation import *
+from controller.operands.time import *
 
 
 def readfile(filename):
