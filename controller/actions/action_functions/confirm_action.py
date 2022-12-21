@@ -6,7 +6,7 @@ from controller.actions.action_interface import ActionInterface
 class ConfirmAction(ActionInterface):
 
     def __init__(self):
-        super().__init__('CONFIRM')
+        super().__init__('ALERT')
 
     def execute_action(self, values) -> bool:
         """
