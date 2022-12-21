@@ -2,7 +2,7 @@ from time import sleep
 from random import randint
 
 
-def delay(time, rand):
+def delay(time, rand=0):
     """
     Adds specified or random delay to actions
     :param time: time in milliseconds to delay for
