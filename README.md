@@ -46,11 +46,14 @@ Clicks mouse at specified x, y coordinates or at current position. Possible to a
 random deviation to both actions.
 
 #### Format
-To click at x, y coordinates
-`CLICK`,`x`,`y`,`random`,`mouse`
-
 To click at current position
 `CLICK`,`random`,`mouse`
+
+To click at x, y coordinates
+`CLICK`,`x`,`y`,`random`
+
+To click at x, y coordinates with specified mouse button
+`CLICK`,`x`,`y`,`random`,`mouse`
 
 `mouse` specifies the mouse button to press. Possibilities:
  - `left`

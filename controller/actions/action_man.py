@@ -14,7 +14,7 @@ class ActionMan:
         pass
 
     def select_action(self, string, values):
-        action = ActionInterface()
+        __return_value = True
         """
         Finds the action and calls its function
         :param string: action
@@ -22,13 +22,14 @@ class ActionMan:
         :return: Boolean to continue or not
         """
         if string == 'MOVE':
-            action = MoveAction()
+            __return_value = MoveAction().execute_action(values)
         elif string == 'CLICK':
-            action = ClickAction()
+            print("Click")
+            __return_value = ClickAction().execute_action(values)
         elif string == 'SLEEP':
-            action = SleepAction()
+            __return_value = SleepAction().execute_action(values)
         elif string == 'CONFIRM':
-            action = ConfirmAction()
+            __return_value = ConfirmAction().execute_action(values)
         else:
             print("Action not recognized")
-        return action.execute_action(string, values)
+        return __return_value

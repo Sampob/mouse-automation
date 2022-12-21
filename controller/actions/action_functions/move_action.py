@@ -7,7 +7,7 @@ class MoveAction(ActionInterface):
     def __init__(self):
         super().__init__('MOVE')
 
-    def execute_action(self, values: list[int]) -> bool:
+    def execute_action(self, values) -> bool:
         """
         Move mouse to coordinates
         :param values: Array [x, y, rand]

@@ -8,7 +8,7 @@ class ConfirmAction(ActionInterface):
     def __init__(self):
         super().__init__('CONFIRM')
 
-    def execute_action(self, values: list[str]) -> bool:
+    def execute_action(self, values) -> bool:
         """
         Prompts user to continue or stop
         :param values: Array [Text to continue, text to cancel]
