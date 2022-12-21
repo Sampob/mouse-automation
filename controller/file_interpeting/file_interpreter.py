@@ -9,15 +9,23 @@ class FileController:
         pass
 
     action_man = ActionMan()
+    __filename = ''
 
-    def readfile(self, filename):
+    def set_filename(self, name):
         """
-        Opens file with 'filename' and reads lines one by one until through the file
-        Passes each line to select_action which acts accordingly
-        :param filename: file to go through
+        Sets the file to be executed
+        :param name: path and name of the file
         :return: None
         """
-        with open(filename, 'r') as f:
+        self.__filename = name
+
+    def readfile(self):
+        """
+        Opens file with `__filename` and reads lines one by one until through the file
+        Passes each line to select_action which acts accordingly
+        :return: None
+        """
+        with open(self.__filename, 'r') as f:
             continue_loop = True
             nextline = None
             while nextline != '' and continue_loop:
