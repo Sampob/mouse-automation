@@ -1,6 +1,18 @@
+from controller.actions.action_interface import ActionInterface
 from model.mouse.mouse_automation import move_mouse_to
 
 
-def move_action(values):
-    # move_mouse_to(x, y, rand)
-    move_mouse_to(int(values[0]), int(values[1]), int(values[2]))
+class MoveAction(ActionInterface):
+
+    def __init__(self):
+        super().__init__('MOVE')
+
+    def execute_action(self, values: list[int]) -> bool:
+        """
+        Move mouse to coordinates
+        :param values: Array [x, y, rand]
+        :return: True to continue
+        """
+        # move_mouse_to(x=None, y=None, arr=None, rand=0)
+        move_mouse_to(x=int(values[0]), y=int(values[1]), rand=int(values[2]))
+        return True
