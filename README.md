@@ -1,4 +1,4 @@
-# Old School Runescape Automation
+# Python mouse click automation
 
 ## Scope
 

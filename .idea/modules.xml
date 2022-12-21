@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/osrs.iml" filepath="$PROJECT_DIR$/.idea/osrs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/mouse-automation.iml" filepath="$PROJECT_DIR$/.idea/mouse-automation.iml" />
     </modules>
   </component>
 </project>
