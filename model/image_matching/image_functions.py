@@ -1,4 +1,7 @@
-def locate_image(img):
+import pyautogui
+
+
+def locate_image(img: str):
     """
     Finds specified images center coordinates on screen
     Returns the first match from left to right, up to down

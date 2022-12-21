@@ -3,7 +3,7 @@ from random import randint
 from model.image_matching.image_functions import locate_image
 
 
-def click_mouse_at(x=None, y=None, arr=None, rand=0, mouse='left'):
+def click_mouse_at(x: int = None, y: int = None, arr: 'list' = None, rand: int = 0, mouse: str = 'left') -> None:
     """
     Click mouse at coordinates x, y
     `rand` adds random variation to coordinates from -rand to rand
@@ -25,7 +25,7 @@ def click_mouse_at(x=None, y=None, arr=None, rand=0, mouse='left'):
         raise TypeError("Need x and y, or arr argument")
 
 
-def click_mouse(x=None, y=None, arr=None, rand=0, mouse='left'):
+def click_mouse(x: int = None, y: int = None, arr: 'list' = None, rand: int = 0, mouse: str = 'left') -> None:
     """
     Clicks mouse from current position by x and y
     `rand` adds random variation to movement
@@ -34,7 +34,7 @@ def click_mouse(x=None, y=None, arr=None, rand=0, mouse='left'):
     E.g. click_mouse(0, 0, 0, 'left') left clicks mouse at current location
     :param arr: Array [x, y] with x and y coordinates
     :param x: horizontal position on screen
-    :param y: verical position on screen
+    :param y: vertical position on screen
     :param rand: position variation
     :param mouse: clicked mouse button
     :return: None
@@ -48,7 +48,7 @@ def click_mouse(x=None, y=None, arr=None, rand=0, mouse='left'):
     pyautogui.click(button=mouse)
 
 
-def move_mouse_to(x=None, y=None, arr=None, rand=0):
+def move_mouse_to(x: int = None, y: int = None, arr: 'list' = None, rand: int = 0) -> None:
     """
     Move mouse to coordinates x, y
     `rand` adds random variation to coordinates from -rand to rand
@@ -68,7 +68,7 @@ def move_mouse_to(x=None, y=None, arr=None, rand=0):
         raise TypeError("Need x and y, or arr argument")
 
 
-def move_mouse(x=None, y=None, arr=None, rand=0):
+def move_mouse(x: int = None, y: int = None, arr: 'list' = None, rand: int = 0) -> None:
     """
     Move mouse from current position by x and y
     `rand` adds random variation to movement
@@ -88,7 +88,7 @@ def move_mouse(x=None, y=None, arr=None, rand=0):
         raise TypeError("Need x and y, or arr argument")
 
 
-def point_to_coordinates(point):
+def point_to_coordinates(point: pyautogui.Point):
     """
     Formats Point object to an Array
     :param point: Point object with attributes x and y
@@ -100,7 +100,7 @@ def point_to_coordinates(point):
         return False
 
 
-def click_at_image(img, mouse='left'):
+def click_at_image(img: str, mouse: str = 'left') -> None:
     """
     Uses other functions to find and click specified image
     :param img: image path and filename

@@ -11,7 +11,7 @@ class FileController:
     action_man = ActionMan()
     __filename = ''
 
-    def set_filename(self, name):
+    def set_filename(self, name: str):
         """
         Sets the file to be executed
         :param name: path and name of the file
@@ -38,7 +38,7 @@ class FileController:
                     pass
         print("Stopping")
 
-    def parse_action(self, line):
+    def parse_action(self, line: str):
         """
         Gets a String type line
         Separates the action from parameters, selects it and passes it

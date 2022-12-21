@@ -13,7 +13,7 @@ class ActionMan:
     def __init__(self):
         pass
 
-    def select_action(self, string, values):
+    def select_action(self, string, values) -> bool:
         __return_value = True
         """
         Finds the action and calls its function

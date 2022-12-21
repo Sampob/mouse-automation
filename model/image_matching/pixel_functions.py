@@ -1,7 +1,7 @@
 import pyautogui
 
 
-def rgb_at_mouse():
+def rgb_at_mouse() -> list:
     """
     Gets the rgb values at current mouse position
     :return: Array [r, g, b]
@@ -11,7 +11,7 @@ def rgb_at_mouse():
     return [r, g, b]
 
 
-def rgb_at(x=None, y=None, arr=None):
+def rgb_at(x: int = None, y: int = None, arr: 'list' = None) -> list:
     """
     Get the rgb values of any pixel on screen
     :param x: horizontal coordinate
@@ -28,7 +28,7 @@ def rgb_at(x=None, y=None, arr=None):
     return [r, g, b]
 
 
-def compare_rgb(color1, color2, tolerance):
+def compare_rgb(color1: 'list', color2: 'list', tolerance: int) -> bool:
     """
     Compares two RGB colors
     'tolerance' dictates how far each value can be from the actual one
