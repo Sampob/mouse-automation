@@ -2,6 +2,7 @@ from controller.actions.action_functions.click_action import ClickAction
 from controller.actions.action_functions.confirm_action import ConfirmAction
 from controller.actions.action_functions.move_action import MoveAction
 from controller.actions.action_functions.sleep_action import SleepAction
+from controller.actions.action_functions.wait_color_action import WaitColorAction
 from controller.actions.action_interface import ActionInterface
 
 
@@ -30,6 +31,10 @@ class ActionMan:
             __return_value = SleepAction().execute_action(values)
         elif string == 'CONFIRM':
             __return_value = ConfirmAction().execute_action(values)
+        elif string == 'WAIT COLOR':
+            __return_value = WaitColorAction().execute_action(values)
+        elif string == 'WAIT COLOR AT':
+            __return_value = WaitColorAction().execute_alt(values)
         else:
             print("Action not recognized")
         return __return_value

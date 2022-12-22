@@ -33,6 +33,7 @@ Implemented commands:
  - `CLICK`
  - `SLEEP`
  - `ALERT`
+ - `WAIT COLOR`
 
 ### `MOVE`
 Moves mouse cursor to specified x, y coordinates. Possible to add random deviation
@@ -72,3 +73,16 @@ Prompt is through a popup window and two buttons. Text of these buttons must be 
 
 #### Format
 `CONFIRM`,`continue`,`exit`
+
+### `WAIT COLOR`
+Waits until specified color is detected at coordinates. The time between checks 
+and color tolerance can be specified. 
+
+#### Format
+`WAIT COLOR`,`x`,`y`,`r`,`g`,`b`,`tolerance`,`delay`
+
+- `tolerance` specifies how close the RGB values have to be to the real one.
+- `delay` is time in milliseconds between check of the coordinate.
+
+`WAIT COLOR AT` has same syntax without `x` and `y`. 
+Command checks the color at current mouse location.
