@@ -1,5 +1,5 @@
 from model.actions.action_interface import ActionInterface
-from model.operands import delay
+from model.operands.time import delay
 
 
 class SleepAction(ActionInterface):

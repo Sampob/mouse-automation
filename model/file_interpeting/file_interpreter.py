@@ -1,4 +1,4 @@
-from model.actions import ActionMan
+from model.actions.action_man import ActionMan
 
 
 class FileController:

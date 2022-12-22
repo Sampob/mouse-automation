@@ -1,8 +1,9 @@
-from model.file_interpeting import FileController
+from controller.model_controller import ModelController
 from view.pygubu_view import GubuView
 
 if __name__ == '__main__':
-    fc = FileController()
 
-    gubu = GubuView()
+    mc = ModelController()
+
+    gubu = GubuView(mc)
     gubu.run()
