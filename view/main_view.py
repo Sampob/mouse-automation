@@ -1,6 +1,11 @@
 import tkinter as tk
 from tkinter import filedialog
 
+"""
+OLD WAY OF DOING
+SAFE TO DELETE
+ONLY FOR DOCUMENTATION PURPOSES
+"""
 
 def butt(*entry):
     print("TeST")
@@ -11,47 +16,54 @@ class MainView:
         self.new_filename = ''
         self.view = tk.Tk(screenName=None, baseName=None, className='Automation', useTk=True)
         self.view.geometry('{}x{}'.format(x, y))
+        self.automation_view()
 
-        self.left_frame = new_frame(self.view)
-        self.left_frame.pack(side=tk.LEFT, expand=True, padx=10, pady=10)
+    def automation_view(self):
+        left_frame = new_frame(self.view)
+        left_frame.pack(side=tk.LEFT, expand=True, padx=10, pady=10)
 
-        self.scrollbar = new_scrollbar(self.left_frame)
-        self.scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+        scrollbar = new_scrollbar(left_frame)
+        scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
 
-        self.scrollbar_content = tk.Listbox(self.left_frame, yscrollcommand=self.scrollbar.set, width=50, height=15)
-        self.scrollbar_content.pack(side=tk.LEFT, fill=tk.X)
+        scrollbar_content = tk.Listbox(left_frame, yscrollcommand=scrollbar.set, width=50, height=15)
+        scrollbar_content.pack(side=tk.LEFT, fill=tk.Y)
 
-        self.right_frame = new_frame(self.view)
-        self.right_frame.pack(side=tk.RIGHT, expand=True, padx=10, pady=10)
+        right_frame = new_frame(self.view)
+        right_frame.pack(side=tk.RIGHT, expand=True, padx=10, pady=10)
 
-        self.file_button = new_action_button(self.right_frame, text="Open file", action=self.open_file)
-        self.file_button.pack(side=tk.TOP)
+        file_button = new_action_button(right_frame, text="Open file",
+                                        action=lambda: self.open_file(scrollbar_content))
+        file_button.grid(row=0, column=0)
+        # file_button.pack(side=tk.TOP)
 
-        self.play_button = new_action_button(self.right_frame, text="Play", action=butt)
-        self.play_button.pack()
+        play_button = new_action_button(right_frame, text="Play", action=butt)
+        play_button.grid(row=1, column=0)
+        # play_button.pack()
 
-        self.new_file_frame = new_frame(self.right_frame)
-        self.new_file_frame.pack()
+        new_file_frame = new_frame(right_frame)
+        new_file_frame.grid(row=2, column=0)
+        # new_file_frame.pack()
 
-        self.file_entry = new_entry(self.new_file_frame, self.new_filename)
-        self.file_entry.pack(side=tk.LEFT)
+        file_entry = new_entry(new_file_frame, self.new_filename)
+        file_entry.pack(side=tk.LEFT)
 
-        self.new_file_button = new_action_button(self.new_file_frame, text="Create", action=butt)
-        self.new_file_button.pack(side=tk.RIGHT)
+        new_file_button = new_action_button(new_file_frame, text="Create", action=butt)
+        new_file_button.pack(side=tk.RIGHT)
 
-        self.record_button = new_action_button(self.right_frame, text="Record new", action=butt)
-        self.record_button.pack(side=tk.BOTTOM)
+        record_button = new_action_button(right_frame, text="Record new", action=butt)
+        record_button.grid(row=3, column=0)
+        # record_button.pack(side=tk.BOTTOM)
 
-    def open_file(self) -> None:
+    def open_file(self, element) -> None:
         filepath = filedialog.askopenfilename()
         if filepath:
-            self.scrollbar_content.delete(0, tk.END)
+            element.delete(0, tk.END)
             index = 0
             nextline = None
             with open(filepath, 'r') as f:
                 while nextline != '':
                     nextline = f.readline()
-                    self.scrollbar_content.insert(index, nextline)
+                    element.insert(index, nextline)
                     index += 1
 
 
