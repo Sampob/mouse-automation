@@ -34,6 +34,7 @@ Implemented commands:
  - `SLEEP`
  - `ALERT`
  - `WAIT COLOR`
+ - `EXECUTE`
 
 ### `MOVE`
 Moves mouse cursor to specified x, y coordinates. Possible to add random deviation
@@ -86,3 +87,9 @@ and color tolerance can be specified.
 
 `WAIT COLOR AT` has same syntax without `x` and `y`. 
 Command checks the color at current mouse location.
+
+### `EXECUTE`
+Starts the execution of specified script. Optional parameter for times the script is executed.
+
+#### Format
+`EXECUTE`,`filename`,`times`
