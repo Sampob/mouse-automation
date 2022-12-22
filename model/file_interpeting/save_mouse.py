@@ -1,7 +1,7 @@
 from pynput import mouse, keyboard
 import time
 
-from controller.file_interpeting.save_to_file import click_to_file_format, sleep_to_file_format
+from model.file_interpeting.save_to_file import click_to_file_format, sleep_to_file_format
 
 key_started = False
 mouse_listener = None

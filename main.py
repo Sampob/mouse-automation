@@ -1,5 +1,4 @@
-from controller.file_interpeting.file_interpreter import FileController
-from view.main_view import MainView
+from model.file_interpeting import FileController
 from view.pygubu_view import GubuView
 
 if __name__ == '__main__':

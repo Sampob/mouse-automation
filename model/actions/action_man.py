@@ -1,9 +1,9 @@
-from controller.actions.action_functions.click_action import ClickAction
-from controller.actions.action_functions.confirm_action import ConfirmAction
-from controller.actions.action_functions.execute_action import ExecuteAction
-from controller.actions.action_functions.move_action import MoveAction
-from controller.actions.action_functions.sleep_action import SleepAction
-from controller.actions.action_functions.wait_color_action import WaitColorAction
+from model.actions.action_functions.click_action import ClickAction
+from model.actions.action_functions.confirm_action import ConfirmAction
+from model.actions.action_functions.execute_action import ExecuteAction
+from model.actions.action_functions.move_action import MoveAction
+from model.actions.action_functions.sleep_action import SleepAction
+from model.actions.action_functions.wait_color_action import WaitColorAction
 
 
 # TODO Look into using enums

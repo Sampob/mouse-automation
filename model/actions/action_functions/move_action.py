@@ -1,4 +1,4 @@
-from controller.actions.action_interface import ActionInterface
+from model.actions.action_interface import ActionInterface
 from model.mouse.mouse_automation import move_mouse_to
 
 

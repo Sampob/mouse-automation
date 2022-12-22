@@ -1,6 +1,6 @@
 import pyautogui
 
-from controller.actions.action_interface import ActionInterface
+from model.actions.action_interface import ActionInterface
 
 
 class ConfirmAction(ActionInterface):

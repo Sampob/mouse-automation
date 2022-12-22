@@ -1,4 +1,4 @@
-from controller.actions.action_interface import ActionInterface
+from model.actions.action_interface import ActionInterface
 from time import sleep
 
 from model.image_matching.pixel_functions import compare_rgb, rgb_at, rgb_at_mouse

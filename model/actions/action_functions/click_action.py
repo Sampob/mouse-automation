@@ -1,4 +1,4 @@
-from controller.actions.action_interface import ActionInterface
+from model.actions.action_interface import ActionInterface
 from model.mouse.mouse_automation import click_mouse, click_mouse_at
 
 
@@ -8,7 +8,6 @@ class ClickAction(ActionInterface):
         super().__init__('CLICK')
 
     def execute_action(self, values) -> bool:
-        print(values)
         """
         Click mouse at coordinates
         :param values: Array [x, y, rand, mouse]

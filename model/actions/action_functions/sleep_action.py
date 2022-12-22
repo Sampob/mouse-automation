@@ -1,5 +1,5 @@
-from controller.actions.action_interface import ActionInterface
-from controller.operands.time import delay
+from model.actions.action_interface import ActionInterface
+from model.operands import delay
 
 
 class SleepAction(ActionInterface):

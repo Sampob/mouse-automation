@@ -1,4 +1,4 @@
-from controller.actions.action_man import ActionMan
+from model.actions import ActionMan
 
 
 class FileController:
@@ -6,10 +6,9 @@ class FileController:
     Handles file reading and parsing
     """
     def __init__(self):
-        pass
+        self.filename = ''
 
     action_man = ActionMan()
-    __filename = ''
 
     def set_filename(self, name: str):
         """
@@ -17,7 +16,7 @@ class FileController:
         :param name: path and name of the file
         :return: None
         """
-        self.__filename = name
+        self.filename = name
 
     def readfile(self):
         """
@@ -25,7 +24,7 @@ class FileController:
         Passes each line to select_action which acts accordingly
         :return: None
         """
-        with open(self.__filename, 'r') as f:
+        with open(self.filename, 'r') as f:
             continue_loop = True
             nextline = None
             while nextline != '' and continue_loop:
@@ -36,7 +35,6 @@ class FileController:
                         continue_loop = self.parse_action(nextline)
                 except IndexError:
                     pass
-        print("Stopping")
 
     def parse_action(self, line: str):
         """
