@@ -24,18 +24,20 @@ class GubuView:
 
     def browse_command(self):
         filepath = filedialog.askopenfilename()
-        element = self.builder.get_object('filelist')
         if filepath:
             self.model.set_script(filepath)
             self.builder.get_object('filenamelable').config(text=filepath)
-            element.delete(0, tk.END)
-            index = 0
-            nextline = None
-            with open(filepath, 'r') as f:
-                while nextline != '':
-                    nextline = f.readline()
-                    element.insert(index, nextline)
-                    index += 1
+            self.set_filelist(self.read_file_lines(filepath=filepath))
+
+    def read_file_lines(self, filepath):
+        with open(filepath, 'r') as f:
+            return f.readlines()
+
+    def set_filelist(self, text: 'list', index: int = 0):
+        element = self.builder.get_object('filelist')
+        element.delete(0, tk.END)
+        for i in range(len(text)):
+            element.insert(i, text[i])
 
     def indef_click(self):
         state = tk.NORMAL
@@ -45,11 +47,11 @@ class GubuView:
 
     def execute_button(self):
         execute_thread = Thread(target=self.model.execute_script, args=(
-            self.builder.tkvariables['indefvar'].get(), int(self.builder.get_object('timesspinbox').get()), ))
+            self.builder.tkvariables['indefvar'].get(), int(self.builder.get_object('timesspinbox').get()),))
         execute_thread.start()
 
     def test(self, *args):
-        self.model.test(args)
+        self.set_filelist()
 
     def run(self):
         self.mainwindow.mainloop()
