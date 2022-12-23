@@ -2,8 +2,8 @@ from model.file_interpeting.file_interpreter import FileController
 
 
 class ModelController:
-    def __init__(self, file_controller: FileController):
-        self.fc = file_controller
+    def __init__(self):
+        self.fc = FileController()
 
     def set_script(self, script):
         self.fc.set_filename(script)
