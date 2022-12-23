@@ -44,8 +44,6 @@ class GubuView:
         self.builder.get_object('timesspinbox').config(state=state)
 
     def execute_button(self):
-        # self.model.execute_script(
-        #     [self.builder.tkvariables['indefvar'].get(), self.builder.get_object('timesspinbox').get()])
         execute_thread = Thread(target=self.model.execute_script, args=(
             self.builder.tkvariables['indefvar'].get(), int(self.builder.get_object('timesspinbox').get()), ))
         execute_thread.start()
