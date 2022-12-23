@@ -5,5 +5,5 @@ if __name__ == '__main__':
 
     mc = ModelController()
 
-    gubu = GubuView(mc)
+    gubu = GubuView(model=mc)
     gubu.run()

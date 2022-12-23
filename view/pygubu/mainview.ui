@@ -84,6 +84,7 @@
                     </layout>
                     <child>
                       <object class="tk.Button" id="browsebutton" named="True">
+                        <property name="command" type="command" cbtype="simple">browse_command</property>
                         <property name="text" translatable="yes">Browse</property>
                         <layout manager="pack">
                           <property name="side">right</property>
@@ -92,10 +93,9 @@
                     </child>
                     <child>
                       <object class="tk.Label" id="filenamelable" named="True">
+                        <property name="anchor">w</property>
                         <property name="background">white</property>
-                        <property name="justify">right</property>
                         <property name="relief">groove</property>
-                        <property name="text" translatable="yes">file</property>
                         <property name="width">15</property>
                         <layout manager="pack">
                           <property name="expand">true</property>
@@ -118,7 +118,9 @@
                       <property name="side">top</property>
                     </layout>
                     <child>
-                      <object class="tk.Spinbox" id="timespinbox" named="True">
+                      <object class="tk.Spinbox" id="timesspinbox" named="True">
+                        <property name="from_">1</property>
+                        <property name="to">10000</property>
                         <property name="width">5</property>
                         <layout manager="pack">
                           <property name="expand">true</property>
@@ -128,8 +130,12 @@
                     </child>
                     <child>
                       <object class="tk.Checkbutton" id="indefcheck" named="True">
+                        <property name="command" type="command" cbtype="simple">indef_click</property>
                         <property name="justify">center</property>
+                        <property name="offvalue">False</property>
+                        <property name="onvalue">True</property>
                         <property name="text" translatable="yes">Indef.</property>
+                        <property name="variable">boolean:indefvar</property>
                         <layout manager="pack">
                           <property name="expand">true</property>
                           <property name="side">right</property>
@@ -138,6 +144,7 @@
                     </child>
                     <child>
                       <object class="tk.Button" id="executebutton" named="True">
+                        <property name="command" type="command" cbtype="simple">execute_button</property>
                         <property name="takefocus">false</property>
                         <property name="text" translatable="yes">Execute</property>
                         <layout manager="pack">
@@ -195,6 +202,7 @@
                     </layout>
                     <child>
                       <object class="tk.Button" id="recordbutton" named="True">
+                        <property name="command" type="command" cbtype="simple">test</property>
                         <property name="text" translatable="yes">Record</property>
                         <layout manager="pack">
                           <property name="side">top</property>
