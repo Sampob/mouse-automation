@@ -5,6 +5,7 @@ from model.actions.action_functions.key_action import KeyAction
 from model.actions.action_functions.move_action import MoveAction
 from model.actions.action_functions.sleep_action import SleepAction
 from model.actions.action_functions.wait_color_action import WaitColorAction
+from model.actions.action_interface import ActionInterface
 
 
 # TODO Look into using enums
@@ -17,8 +18,8 @@ class ActionMan:
     def __init__(self):
         pass
 
-    def select_action(self, string, values) -> bool:
-        __return_value = True
+    def select_action(self, string, values) -> ActionInterface:
+        __return_value = None
         """
         Finds the action and calls its function
         :param string: action
@@ -26,22 +27,21 @@ class ActionMan:
         :return: Boolean to continue or not
         """
         if string == 'MOVE':
-            __return_value = MoveAction().execute_action(values)
+            __return_value = MoveAction()
         elif string == 'CLICK':
-            print("Click")
-            __return_value = ClickAction().execute_action(values)
+            __return_value = ClickAction()
         elif string == 'SLEEP':
-            __return_value = SleepAction().execute_action(values)
+            __return_value = SleepAction()
         elif string == 'CONFIRM':
-            __return_value = ConfirmAction().execute_action(values)
+            __return_value = ConfirmAction()
         elif string == 'WAIT COLOR':
-            __return_value = WaitColorAction().execute_action(values)
+            __return_value = WaitColorAction()
         elif string == 'WAIT COLOR AT':
-            __return_value = WaitColorAction().execute_alt(values)
+            __return_value = WaitColorAction()
         elif string == 'EXECUTE':
-            __return_value = ExecuteAction().execute_action(values)
+            __return_value = ExecuteAction()
         elif string == 'KEY':
-            __return_value = KeyAction().execute_action(values)
+            __return_value = KeyAction()
         else:
             print("Action not recognized")
         return __return_value
