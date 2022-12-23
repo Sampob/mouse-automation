@@ -7,6 +7,7 @@ class FileController:
     """
     def __init__(self):
         self.filename = ''
+        self.file_index = 0
 
     action_man = ActionMan()
 
@@ -27,6 +28,7 @@ class FileController:
         with open(self.filename, 'r') as f:
             continue_loop = True
             nextline = None
+            self.file_index = 0
             while nextline != '' and continue_loop:
                 nextline = f.readline()
                 try:
@@ -35,6 +37,7 @@ class FileController:
                         continue_loop = self.parse_action(nextline)
                 except IndexError:
                     pass
+                self.file_index += 1
 
     def parse_action(self, line: str):
         """

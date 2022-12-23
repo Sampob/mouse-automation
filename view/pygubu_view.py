@@ -38,6 +38,10 @@ class GubuView:
         element.delete(0, tk.END)
         for i in range(len(text)):
             element.insert(i, text[i])
+        self.set_selected_item(index)
+
+    def set_selected_item(self, index):
+        self.builder.get_object('filelist').select_set(index)
 
     def indef_click(self):
         state = tk.NORMAL

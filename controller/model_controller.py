@@ -18,6 +18,9 @@ class ModelController:
         else:
             print("NEG")
 
+    def get_file_controller(self):
+        return self.fc
+
     def test(self, *args):
         try:
             print(args)
