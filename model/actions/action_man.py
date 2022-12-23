@@ -1,6 +1,7 @@
 from model.actions.action_functions.click_action import ClickAction
 from model.actions.action_functions.confirm_action import ConfirmAction
 from model.actions.action_functions.execute_action import ExecuteAction
+from model.actions.action_functions.key_action import KeyAction
 from model.actions.action_functions.move_action import MoveAction
 from model.actions.action_functions.sleep_action import SleepAction
 from model.actions.action_functions.wait_color_action import WaitColorAction
@@ -39,6 +40,8 @@ class ActionMan:
             __return_value = WaitColorAction().execute_alt(values)
         elif string == 'EXECUTE':
             __return_value = ExecuteAction().execute_action(values)
+        elif string == 'KEY':
+            __return_value = KeyAction().execute_action(values)
         else:
             print("Action not recognized")
         return __return_value

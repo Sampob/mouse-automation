@@ -35,6 +35,7 @@ Implemented commands:
  - `ALERT`
  - `WAIT COLOR`
  - `EXECUTE`
+ - `KEY`
 
 ### `MOVE`
 Moves mouse cursor to specified x, y coordinates. Possible to add random deviation
@@ -93,3 +94,9 @@ Starts the execution of specified script. Optional parameter for times the scrip
 
 #### Format
 `EXECUTE`,`filename`,`times`
+
+### `KEY`
+Presses specified keys in succession.
+
+#### Format
+`KEY`,`key`,`key`...
