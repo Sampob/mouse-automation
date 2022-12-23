@@ -51,4 +51,4 @@ class FileController:
         selection = line.split(',')[0]
         values = line.split(',')[1:len(line)]
 
-        return self.action_man.select_action(selection, values).execute_action(values)
+        return self.action_man.select_action(selection).execute_action(values)
