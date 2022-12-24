@@ -181,6 +181,7 @@
                     </layout>
                     <child>
                       <object class="tk.Entry" id="recordentry" named="True">
+                        <property name="textvariable">string:filenameentry</property>
                         <layout manager="pack">
                           <property name="expand">true</property>
                           <property name="fill">x</property>
@@ -202,7 +203,7 @@
                     </layout>
                     <child>
                       <object class="tk.Button" id="recordbutton" named="True">
-                        <property name="command" type="command" cbtype="simple">test</property>
+                        <property name="command" type="command" cbtype="simple">record_button</property>
                         <property name="text" translatable="yes">Record</property>
                         <layout manager="pack">
                           <property name="side">top</property>

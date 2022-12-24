@@ -18,6 +18,10 @@ class ModelController:
         else:
             print("NEG")
 
+    def record(self, filename):
+        if filename != 'data/':
+            print(filename)
+
     def get_file_controller(self):
         return self.fc
 

@@ -54,6 +54,9 @@ class GubuView:
             self.builder.tkvariables['indefvar'].get(), int(self.builder.get_object('timesspinbox').get()),))
         execute_thread.start()
 
+    def record_button(self):
+        self.model.record("data/" + self.builder.tkvariables['filenameentry'].get())
+
     def test(self, *args):
         self.set_filelist()
 
