@@ -1,7 +1,10 @@
 import pathlib
 import tkinter as tk
-from threading import Thread
+from threading import Thread, Event
 from tkinter import filedialog
+
+from pynput import keyboard
+from pynput.keyboard import Key
 
 import pygubu
 
@@ -21,6 +24,9 @@ class GubuView:
         self.mainwindow = builder.get_object('mainwindow', master)
 
         builder.connect_callbacks(self)
+
+        self.execute_thread = None
+        self.event = Event()
 
     def browse_command(self):
         filepath = filedialog.askopenfilename()
@@ -50,12 +56,23 @@ class GubuView:
         self.builder.get_object('timesspinbox').config(state=state)
 
     def execute_button(self):
-        execute_thread = Thread(target=self.model.execute_script, args=(
-            self.builder.tkvariables['indefvar'].get(), int(self.builder.get_object('timesspinbox').get()),))
-        execute_thread.start()
+        self.event.clear()
+        self.execute_thread = Thread(target=self.model.execute_script, args=(
+            self.builder.tkvariables['indefvar'].get(), int(self.builder.get_object('timesspinbox').get()),self.event))
+        self.execute_thread.start()
 
+    def stop_executing(self):
+        self.event.set()
+
+    def on_press(self, key):
+        if key == Key.esc:
+            self.stop_executing()
+
+    #TODO Change pygubu call to other than test
     def test(self, *args):
-        self.set_filelist()
+        self.stop_executing()
 
     def run(self):
+        listener = keyboard.Listener(on_press=self.on_press)
+        listener.start()
         self.mainwindow.mainloop()
