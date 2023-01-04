@@ -1,3 +1,5 @@
+from threading import Event
+
 from model.actions.action_man import ActionMan
 
 
@@ -19,7 +21,7 @@ class FileController:
         """
         self.filename = name
 
-    def readfile(self):
+    def readfile(self, event: Event = None):
         """
         Opens file with `__filename` and reads lines one by one until through the file
         Passes each line to select_action which acts accordingly
@@ -29,7 +31,7 @@ class FileController:
             continue_loop = True
             nextline = None
             self.file_index = 0
-            while nextline != '' and continue_loop:
+            while nextline != '' and continue_loop and not event.is_set():
                 nextline = f.readline()
                 try:
                     if nextline[0] != '#' and nextline != '':

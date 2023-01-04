@@ -1,3 +1,5 @@
+from threading import Event
+
 from model.file_interpeting.file_interpreter import FileController
 
 
@@ -8,13 +10,13 @@ class ModelController:
     def set_script(self, script):
         self.fc.set_filename(script)
 
-    def execute_script(self, loop: bool = False, times: int = None):
+    def execute_script(self, loop: bool = False, times: int = None, event: Event = None):
         if loop:
             while True:
-                self.fc.readfile()
+                self.fc.readfile(event=event)
         elif times and times > 0:
             for i in range(times):
-                self.fc.readfile()
+                self.fc.readfile(event=event)
         else:
             print("NEG")
 
